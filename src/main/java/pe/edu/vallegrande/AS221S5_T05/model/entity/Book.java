@@ -32,6 +32,12 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
+    @Column(name = "url_download")
+    private String urldownload;
+
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "active")
     private String active = "A";
 

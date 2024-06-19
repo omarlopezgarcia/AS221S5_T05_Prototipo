@@ -14,7 +14,7 @@ public class UserDto {
     private String documentType;
     private String documentNumber;
     private Long rol;
-    private Long ubigeo;
+    private String ubigeo;
     private String email;
     private String userName;
     private String passwords;

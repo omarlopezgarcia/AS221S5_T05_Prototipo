@@ -10,7 +10,7 @@ import pe.edu.vallegrande.AS221S5_T05.service.ICategoryService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2")
+@RequestMapping("/api/v1")
 @CrossOrigin("*")
 public class CategoryController {
 

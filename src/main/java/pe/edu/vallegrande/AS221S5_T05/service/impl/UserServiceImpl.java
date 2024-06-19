@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.vallegrande.AS221S5_T05.model.dto.UserDto;
 import pe.edu.vallegrande.AS221S5_T05.model.entity.Rol;
-import pe.edu.vallegrande.AS221S5_T05.model.entity.Ubigeo;
 import pe.edu.vallegrande.AS221S5_T05.model.entity.User;
 import pe.edu.vallegrande.AS221S5_T05.repository.RolRepository;
-import pe.edu.vallegrande.AS221S5_T05.repository.UbigeoRepository;
 import pe.edu.vallegrande.AS221S5_T05.repository.UserRepository;
 import pe.edu.vallegrande.AS221S5_T05.service.IUserService;
 
@@ -23,9 +21,6 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private RolRepository rolRepository;
-
-    @Autowired
-    private UbigeoRepository ubigeoRepository;
 
     @Override
     public List<User> getActive() {
@@ -44,14 +39,13 @@ public class UserServiceImpl implements IUserService {
 
     public UserDto created(UserDto userDto){
         Rol rol = rolRepository.findById(userDto.getRol()).get();
-        Ubigeo ubigeo = ubigeoRepository.findById(userDto.getUbigeo()).get();
         User user = new User();
         user.setNames(userDto.getNames());
         user.setLastName(userDto.getLastName());
         user.setDocumentType(userDto.getDocumentType());
         user.setDocumentNumber(userDto.getDocumentNumber());
         user.setRol(rol);
-        user.setUbigeo(ubigeo);
+        user.setUbigeo(userDto.getUbigeo());
         user.setEmail(userDto.getEmail());
         user.setUserName(userDto.getUserName());
         user.setPasswords(userDto.getPasswords());
@@ -67,14 +61,13 @@ public class UserServiceImpl implements IUserService {
         Optional<User> userId = userRepository.findById(id);
         if (userId.isPresent()){
             Rol rol = rolRepository.findById(userDto.getRol()).get();
-            Ubigeo ubigeo = ubigeoRepository.findById(userDto.getUbigeo()).get();
             User user = userId.get();
             user.setNames(userDto.getNames());
             user.setLastName(userDto.getLastName());
             user.setDocumentType(userDto.getDocumentType());
             user.setDocumentNumber(userDto.getDocumentNumber());
             user.setRol(rol);
-            user.setUbigeo(ubigeo);
+            user.setUbigeo(userDto.getUbigeo());
             user.setEmail(userDto.getEmail());
             user.setUserName(userDto.getUserName());
             user.setPasswords(userDto.getPasswords());

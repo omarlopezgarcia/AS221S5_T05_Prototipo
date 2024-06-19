@@ -34,9 +34,8 @@ public class User {
     @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
 
-    @ManyToOne
-    @JoinColumn(name = "ubigeo_id", nullable = false)
-    private Ubigeo ubigeo;
+    @Column(name = "ubigeo", nullable = false)
+    private String ubigeo;
 
     @Column(name = "email", unique = true)
     private String email;

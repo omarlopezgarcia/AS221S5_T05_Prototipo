@@ -12,4 +12,6 @@ public class BookDto {
     private String isbn;
     private Long category;
     private Long author;
+    private String url_download;
+    private String description;
 }

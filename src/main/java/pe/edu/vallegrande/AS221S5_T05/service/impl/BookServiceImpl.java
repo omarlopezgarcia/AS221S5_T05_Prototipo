@@ -51,6 +51,8 @@ public class BookServiceImpl implements IBookService {
         book.setIsbn(bookDto.getIsbn());
         book.setCategory(category);
         book.setAuthor(author);
+        book.setUrldownload(bookDto.getUrl_download());
+        book.setDescription(bookDto.getDescription());
         book = bookRepository.save(book);
         bookDto.setId(book.getId());
         return bookDto;
@@ -68,6 +70,8 @@ public class BookServiceImpl implements IBookService {
             book.setIsbn(bookDto.getIsbn());
             book.setCategory(category);
             book.setAuthor(author);
+            book.setUrldownload(bookDto.getUrl_download());
+            book.setDescription(bookDto.getDescription());
             book = bookRepository.save(book);
             bookDto.setId(book.getId());
             return bookDto;
